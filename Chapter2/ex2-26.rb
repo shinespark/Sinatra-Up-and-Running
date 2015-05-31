@@ -1,0 +1,16 @@
+require 'sinatra'
+
+before do
+  conetnt_type :txt
+end
+
+get '/' do
+  headers "X-Custom-Value" => "This is a custom HTTP header."
+  'Custom header set'
+end
+
+get '/multiple' do
+  headers "X-Custom-Value" => "foo", "X-Custom-Value-2" => "bar"
+  'Multiple Custom header set'
+end
+
